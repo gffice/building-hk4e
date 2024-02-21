@@ -59,19 +59,19 @@ jobs:
       - name: 首次需要安装工具
         run: sudo make dev_tool
       - name: 生成natsrpc协议
-        run: sudo make gen_natsrpc
+        run: make gen_natsrpc
       - name: 生成客户端协议
-        run: sudo make gen_proto
+        run: make gen_proto
       #- name: 生成客户端协议代理(非必要 详见gate/client_proto/README.md)
         #run: make gen_client_proto
       - name: 构建服务器二进制文件
-        run: sudo make build
+        run: make build
       - name: 复制配置模板等文件
-        run: sudo make docker_config
+        run: make docker_config
       - name: 构建镜像
-        run: sudo make docker_build
+        run: make docker_build
       - name: 生成配置表
-        run: sudo make gen_csv
+        run: make gen_csv
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |

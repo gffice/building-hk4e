@@ -28,8 +28,10 @@ jobs:
         uses: actions/setup-go@v5.0.0
       - name: Setup protoc
         uses: arduino/setup-protoc@v3.0.0
-      - name: Setup proto-gen-go
-        uses: github/proto-gen-go@v1.4.0
+      #- name: Setup proto-gen-go
+        #uses: github/proto-gen-go@v1.4.0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.2
       # Runs a single command using the runners shell
       #- name: 安装运行环境
         #run: sudo apt install golang-go protobuf-compiler protoc-gen-go

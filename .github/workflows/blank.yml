@@ -45,12 +45,8 @@ jobs:
            sudo sh test-docker.sh
       #- name: 安装运行环境-docker-compose
         #run: sudo apt install docker-compose
-      - name: Setup docker-compose
-        uses: KengoTODA/actions-setup-docker-compose@v1.0.9
-        with:
-            version: 1.29
-      #- name: 安装运行环境-docker-compose
-        #run: sudo apt install docker-compose protoc-gen-go
+      - name: 安装运行环境-docker-compose
+        run: sudo apt install docker-compose protoc-gen-go
 
       - name: 复制代码
         run: git clone https://github.com/gffice/hk4e.git

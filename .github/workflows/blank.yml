@@ -27,9 +27,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 复制代码
-        run: git clone https://github.com/gffice/hk4e.git
-      - name: 去到目录
-        run: cd hk4e/hk4e
+        run: gh repo clone gffice/hk4e
+        
       - name: 看一下
         run: ls
       - name: 首次需要安装工具

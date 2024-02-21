@@ -27,8 +27,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 复制代码
-        run: gh repo clone gffice/hk4e
-        
+        run: git clone https://github.com/gffice/hk4e.git
+      - name: 改变文件夹
+        run: mv ./hk4e/* ./
+      - name: 删除文件夹
+        run: rm -rf ./hk4e 
       - name: 看一下
         run: ls
       - name: 首次需要安装工具

@@ -28,6 +28,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: 复制代码
         run: git clone https://github.com/gffice/hk4e
+      - name: 去到目录
+        run: cd hk4e
+      - name: 给权限
+        run: sudo chmod 777 ./ -R
       - name: 首次需要安装工具
         run: make dev_tool
       - name: 生成natsrpc协议

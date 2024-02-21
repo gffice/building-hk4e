@@ -27,13 +27,11 @@ jobs:
       - name: install-protoc-gen-go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.18'
           run: go get google.golang.org/protobuf/cmd/protoc-gen-go
 
       - name: setup-protoc
         uses: arduino/setup-protoc@v3.0.0
         with:
-          version: '21.3'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       
       #- name: Setup proto-gen-go

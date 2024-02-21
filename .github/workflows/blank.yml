@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: 复制代码
+        run: git clone https://github.com/gffice/hk4e
+      - name: 首次需要安装工具
+        run: make dev_tool
+      - name: 生成natsrpc协议
+        run: make gen_natsrpc
+      - name: 生成客户端协议
+        run: make gen_proto
+      - name: 生成客户端协议代理(非必要 详见gate/client_proto/README.md)
+        run: make gen_client_proto
+      - name: 构建服务器二进制文件
+        run: make build
+      - name: 复制配置模板等文件
+        run: make docker_config
+      - name: 构建镜像
+        run: make docker_build
+      - name: 生成配置表
+        run: make gen_csv
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo 
+          echo test, and deploy your project.
+      - name: Upload artifact # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
+        uses: actions/upload-artifact@v2
+        with:
+          name: Building_output
+          path: ~/

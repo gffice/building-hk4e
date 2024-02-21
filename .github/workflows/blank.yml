@@ -38,8 +38,9 @@ jobs:
            curl -fsSL https://test.docker.com -o test-docker.sh
            sudo sh test-docker.sh
       - name: 安装运行环境-docker-compose
-        run: sudo apt install docker-compose protoc-gen-go
-           
+        run: sudo apt install docker-compose
+      #- name: 安装运行环境-docker-compose
+        #run: sudo apt install docker-compose protoc-gen-go
 
       - name: 复制代码
         run: git clone https://github.com/gffice/hk4e.git

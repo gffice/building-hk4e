@@ -26,6 +26,16 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
+      - name: 安装运行环境
+        run: sudo apt install golang-go protobuf-compiler protoc-gen-go 
+      - name: 安装运行环境-docker
+        run: |
+           curl -fsSL https://test.docker.com -o test-docker.sh
+           sudo sh test-docker.sh
+      - name: 安装运行环境-docker-compose
+        run: sudo apt install docker-compose
+           
+
       - name: 复制代码
         run: git clone https://github.com/gffice/hk4e.git
       - name: 改变文件夹

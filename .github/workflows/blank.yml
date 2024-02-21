@@ -57,7 +57,7 @@ jobs:
       - name: 看一下
         run: ls
       - name: 首次需要安装工具
-        run: sudo make dev_tool
+        run: make dev_tool
       - name: 生成natsrpc协议
         run: make gen_natsrpc
       - name: 生成客户端协议

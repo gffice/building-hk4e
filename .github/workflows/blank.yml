@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 安装运行环境
-        run: sudo apt install golang-go protobuf-compiler protoc-gen-go 
+        run: sudo apt install golang-go protobuf-compiler protoc-gen-go-1-3
       - name: 安装运行环境-docker
         run: |
            curl -fsSL https://test.docker.com -o test-docker.sh

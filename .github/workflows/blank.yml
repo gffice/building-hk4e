@@ -29,7 +29,7 @@ jobs:
       - name: Setup protoc
         uses: arduino/setup-protoc@v3.0.0
       - name: Setup proto-gen-go
-        uses: github/proto-gen-go@v1.28
+        uses: github/proto-gen-go@v1.4.0
       # Runs a single command using the runners shell
       #- name: 安装运行环境
         #run: sudo apt install golang-go protobuf-compiler protoc-gen-go

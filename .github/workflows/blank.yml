@@ -54,7 +54,7 @@ jobs:
       #- name: 安装运行环境-docker-compose
         #run: sudo apt install docker-compose
       - name: 安装运行环境-docker-compose
-        run: sudo apt install docker-compose
+        run: sudo curl -SL https://github.com/docker/compose/releases/download/v1.29.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 
       - name: 复制代码
         run: git clone https://github.com/gffice/AAAA_hk4e-go.git
@@ -95,3 +95,8 @@ jobs:
         #with:
           #name: Building_output
           #path: ~/
+      - name: 测试
+        run: |
+          cd docker
+          #启动前请先确保各服务器的配置文件正确(如docker/node/bin/application.toml)
+          sudo docker-compose up -d # 启动服务器

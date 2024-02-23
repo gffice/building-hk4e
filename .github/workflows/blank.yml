@@ -54,8 +54,9 @@ jobs:
       #- name: 安装运行环境-docker-compose
         #run: sudo apt install docker-compose
       - name: 安装运行环境-docker-compose
-        run: sudo curl -SL https://github.com/docker/compose/releases/download/v1.29.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-
+        run: |
+            sudo curl -SL https://github.com/docker/compose/releases/download/v1.29.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
       - name: 复制代码
         run: git clone https://github.com/gffice/AAAA_hk4e-go.git
       - name: 改变文件夹

@@ -94,7 +94,10 @@ jobs:
       - name: 删除旧Zip文件
         run: rm docker.zip
       - name: 建立全部Zip文件
-        run: zip -r ~/all.zip ./
+        run: |
+            sudo zip -r /root/all.zip /home
+            sudo mv /root/all.zip ./
+            sudo chmod 777 all.zip
       - name: 上传全部 # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
         uses: actions/upload-artifact@v2
         with:

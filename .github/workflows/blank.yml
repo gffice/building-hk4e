@@ -57,11 +57,11 @@ jobs:
         run: sudo apt install docker-compose
 
       - name: 复制代码
-        run: git clone https://github.com/gffice/hk4e-AAA.git
+        run: git clone https://github.com/gffice/AAAA_hk4e-go.git
       - name: 改变文件夹
-        run: mv ./hk4e-AAA/* ./
+        run: mv ./AAAA_hk4e-go/* ./
       - name: 删除文件夹
-        run: rm -rf ./hk4e-AAA
+        run: rm -rf ./AAAA_hk4e-go
       - name: 看一下
         run: ls
       - name: 首次需要安装工具

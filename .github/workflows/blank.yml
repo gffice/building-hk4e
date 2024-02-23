@@ -81,15 +81,15 @@ jobs:
       #- name: 生成配置表
         #run: make gen_csv
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: 建立Zip文件
         run: |
           sudo apt install zip
           zip -r docker.zip ./docker/
-      - name: 上传重要 # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
-        uses: actions/upload-artifact@v2
+      - name: 上传重要构建产物 # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
+        uses: actions/upload-artifact@v4
         with:
           name: hk4e构建产物
-          path: .
+          path: docker.zip
       #- name: 上传全部 # 上传构建产物，这里我们的源码目录是 src，而实际运行的代码是构建后的 bin 目录
         #uses: actions/upload-artifact@v2
         #with:
